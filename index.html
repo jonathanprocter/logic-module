@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive Logic and Proofs Learning Module">
+    <title>Logic and Proofs: Interactive Module</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="module-container">
+        <!-- Module Header -->
+        <header class="module-header">
+            <h1>Logic and Proofs: Interactive Learning Module</h1>
+            <div class="progress-tracker">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress"></div>
+                </div>
+                <p>Progress: <span id="progress-text">0%</span></p>
+            </div>
+        </header>
+
+        <!-- Main Navigation -->
+        <nav class="module-nav">
+            <ul class="nav-list">
+                <li><button class="nav-btn active" data-section="basics">Basic Concepts</button></li>
+                <li><button class="nav-btn" data-section="truth-tables">Truth Tables</button></li>
+                <li><button class="nav-btn" data-section="predicate">Predicate Logic</button></li>
+                <li><button class="nav-btn" data-section="practice">Practice</button></li>
+                <li><button class="nav-btn" data-section="assessment">Assessment</button></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+            <!-- Basic Concepts Section -->
+            <section id="basics" class="content-section active">
+                <h2>Basic Logical Concepts</h2>
+                
+                <div class="concept-card">
+                    <h3>Propositions</h3>
+                    <p>A proposition is a statement that is either true or false, but not both.</p>
+                    
+                    <div class="interactive-workspace">
+                        <h4>Practice: Identifying Propositions</h4>
+                        <div class="practice-area">
+                            <div class="statement-checker">
+                                <p id="current-statement">The sky is blue.</p>
+                                <div class="button-group">
+                                    <button class="btn" onclick="checkStatement(true)">Proposition</button>
+                                    <button class="btn" onclick="checkStatement(false)">Not a Proposition</button>
+                                </div>
+                                <div id="statement-feedback" class="feedback"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Truth Tables Section -->
+            <section id="truth-tables" class="content-section">
+                <h2>Truth Tables</h2>
+                
+                <div class="interactive-workspace">
+                    <h3>Truth Table Builder</h3>
+                    <div class="control-panel">
+                        <input type="text" id="logic-expression" 
+                               placeholder="Enter logical expression (e.g., P ∧ Q)"
+                               class="logic-input">
+                        <div class="symbol-palette">
+                            <button class="symbol-btn" onclick="insertSymbol('∧')">∧ (AND)</button>
+                            <button class="symbol-btn" onclick="insertSymbol('∨')">∨ (OR)</button>
+                            <button class="symbol-btn" onclick="insertSymbol('¬')">¬ (NOT)</button>
+                            <button class="symbol-btn" onclick="insertSymbol('→')">→ (IMPLIES)</button>
+                            <button class="symbol-btn" onclick="insertSymbol('↔')">↔ (IFF)</button>
+                        </div>
+                        <button class="btn" onclick="generateTruthTable()">Generate Table</button>
+                    </div>
+                    <div id="truth-table-output" class="table-container"></div>
+                </div>
+            </section>
+
+            <!-- Predicate Logic Section -->
+            <section id="predicate" class="content-section">
+                <h2>Predicate Logic</h2>
+                
+                <div class="interactive-workspace">
+                    <h3>Predicate Builder</h3>
+                    <div class="predicate-builder">
+                        <div class="control-panel">
+                            <select id="quantifier-select" class="select-input">
+                                <option value="universal">Universal (∀)</option>
+                                <option value="existential">Existential (∃)</option>
+                            </select>
+                            <input type="text" id="variable-input" 
+                                   placeholder="Variable (e.g., x)"
+                                   class="logic-input">
+                            <input type="text" id="predicate-input" 
+                                   placeholder="Predicate (e.g., P(x))"
+                                   class="logic-input">
+                            <button class="btn" onclick="buildPredicate()">Build Formula</button>
+                        </div>
+                        <div id="predicate-output" class="formula-display"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Practice Section -->
+            <section id="practice" class="content-section">
+                <h2>Practice Problems</h2>
+                
+                <div class="practice-set">
+                    <!-- Truth Table Practice -->
+                    <div class="practice-problem">
+                        <h3>Truth Table Practice</h3>
+                        <p>Complete the truth table for: P → Q</p>
+                        <div class="interactive-table">
+                            <table id="practice-table" class="truth-table">
+                                <thead>
+                                    <tr>
+                                        <th>P</th>
+                                        <th>Q</th>
+                                        <th>P → Q</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>T</td>
+                                        <td>T</td>
+                                        <td><input type="text" class="truth-input" data-row="0"></td>
+                                    </tr>
+                                    <!-- Additional rows -->
+                                </tbody>
+                            </table>
+                            <button class="btn" onclick="checkTruthTable()">Check Answers</button>
+                        </div>
+                    </div>
+
+                    <!-- Predicate Translation Practice -->
+                    <div class="practice-problem">
+                        <h3>Predicate Translation</h3>
+                        <p>Translate: "All numbers are positive"</p>
+                        <div class="translation-workspace">
+                            <input type="text" id="translation-input" 
+                                   placeholder="Enter your translation"
+                                   class="logic-input">
+                            <button class="btn" onclick="checkTranslation()">Check Translation</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Assessment Section -->
+            <section id="assessment" class="content-section">
+                <h2>Knowledge Assessment</h2>
+                
+                <div class="assessment-container">
+                    <!-- Multiple Choice Questions -->
+                    <div class="quiz-section">
+                        <h3>Concept Check</h3>
+                        <div class="quiz-question">
+                            <p>1. Which of the following is a valid proposition?</p>
+                            <div class="options">
+                                <label class="option">
+                                    <input type="radio" name="q1" value="a">
+                                    How are you?
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q1" value="b">
+                                    The sum of 2 and 2 is 4.
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q1" value="c">
+                                    Please close the door.
+                                </label>
+                            </div>
+                            <button class="btn" onclick="checkAnswer(1)">Submit Answer</button>
+                            <div id="q1-feedback" class="feedback"></div>
+                        </div>
+                        <!-- Additional questions -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Module Scripts -->
+    <script src="js/main.js"></script>
+
+    <!-- Initialize MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+</body>
+</html>

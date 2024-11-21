@@ -1,0 +1,128 @@
+/* Core Styles */
+:root {
+    --primary: #2563eb;
+    --secondary: #64748b;
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    --background: #ffffff;
+    --surface: #f8fafc;
+    --text: #0f172a;
+}
+
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--background);
+}
+
+.module-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Interactive Components */
+.interactive-workspace {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logic-builder {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+/* Truth Table Styles */
+.truth-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    background: white;
+}
+
+.truth-table th,
+.truth-table td {
+    border: 1px solid #e2e8f0;
+    padding: 8px;
+    text-align: center;
+}
+
+.truth-table th {
+    background: var(--surface);
+    font-weight: 600;
+}
+
+/* Button and Control Styles */
+.btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.symbol-btn {
+    background: var(--surface);
+    border: 1px solid #e2e8f0;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Practice Problem Styles */
+.practice-problem {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 15px 0;
+    border-left: 4px solid var(--primary);
+}
+
+/* Progress Tracking */
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--primary);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .module-container {
+        padding: 10px;
+    }
+
+    .control-panel {
+        flex-direction: column;
+    }
+}
