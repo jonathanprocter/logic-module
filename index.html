@@ -4,274 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logic and Proofs: Interactive Learning Module</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
     <!-- MathJax for mathematical notation -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="module-container">
-        <!-- Header with Progress -->
+        <!-- Module Header -->
         <header class="module-header">
             <h1>Logic and Proofs</h1>
-            <div class="progress-section">
+            <!-- Progress Tracker -->
+            <div class="progress-tracker">
                 <div class="progress-bar">
                     <div class="progress-fill" id="progress-bar"></div>
                 </div>
                 <p class="progress-text">Progress: <span id="progress-value">0%</span></p>
             </div>
-            <!-- Module Menu -->
-            <nav class="module-menu">
-                <button class="menu-btn" id="open-menu">
-                    <i class="fas fa-bars"></i> Menu
-                </button>
-                <div class="menu-content" id="menu-dropdown">
-                    <a href="#intro" class="menu-item active">Introduction</a>
-                    <a href="#propositions" class="menu-item">Propositions</a>
-                    <a href="#logical-operators" class="menu-item">Logical Operators</a>
-                    <a href="#truth-tables" class="menu-item">Truth Tables</a>
-                    <a href="#predicate-logic" class="menu-item">Predicate Logic</a>
-                    <a href="#practice" class="menu-item">Practice</a>
-                    <a href="#assessment" class="menu-item">Assessment</a>
-                </div>
-            </nav>
         </header>
 
-        <!-- Main Navigation -->
+        <!-- Navigation Bar -->
         <nav class="module-nav">
-            <ul class="nav-list">
-                <li><button class="nav-btn active" data-section="intro">
-                    <i class="fas fa-home"></i> Introduction
-                </button></li>
-                <li><button class="nav-btn" data-section="propositions">
-                    <i class="fas fa-quote-right"></i> Propositions
-                </button></li>
-                <li><button class="nav-btn" data-section="logical-operators">
-                    <i class="fas fa-code-branch"></i> Logical Operators
-                </button></li>
-                <li><button class="nav-btn" data-section="truth-tables">
-                    <i class="fas fa-table"></i> Truth Tables
-                </button></li>
-                <li><button class="nav-btn" data-section="predicate-logic">
-                    <i class="fas fa-function"></i> Predicate Logic
-                </button></li>
-                <li><button class="nav-btn" data-section="practice">
-                    <i class="fas fa-pencil-alt"></i> Practice
-                </button></li>
-                <li><button class="nav-btn" data-section="assessment">
-                    <i class="fas fa-check-circle"></i> Assessment
-                </button></li>
-            </ul>
+            <div class="nav-wrapper">
+                <button class="nav-btn active" data-section="intro">
+                    Introduction
+                </button>
+                <button class="nav-btn" data-section="propositions">
+                    Propositions
+                </button>
+                <button class="nav-btn" data-section="truth-tables">
+                    Truth Tables
+                </button>
+                <button class="nav-btn" data-section="predicate">
+                    Predicate Logic
+                </button>
+                <button class="nav-btn" data-section="practice">
+                    Practice
+                </button>
+                <button class="nav-btn" data-section="assessment">
+                    Assessment
+                </button>
+            </div>
         </nav>
 
         <!-- Main Content Area -->
         <main class="content-area">
             <!-- Introduction Section -->
             <section id="intro" class="content-section active">
-                <div class="section-container">
+                <div class="section-content">
                     <h2>Introduction to Logic</h2>
                     <div class="content-card">
-                        <div class="card-header">
-                            <h3>Welcome to Logic and Proofs</h3>
-                        </div>
-                        <div class="card-body">
-                            <p class="intro-text">
-                                This interactive module will guide you through the fundamental concepts
-                                of mathematical logic and proof techniques.
-                            </p>
-                            <div class="learning-objectives">
-                                <h4>Learning Objectives</h4>
-                                <ul>
-                                    <li>Understand basic logical concepts and terminology</li>
-                                    <li>Master truth tables and logical operators</li>
-                                    <li>Learn predicate logic and quantifiers</li>
-                                    <li>Apply logical principles to construct proofs</li>
-                                </ul>
-                            </div>
-                            <div class="module-overview">
-                                <h4>Module Overview</h4>
-                                <div class="overview-grid">
-                                    <div class="overview-item">
-                                        <i class="fas fa-book"></i>
-                                        <h5>Theory</h5>
-                                        <p>Learn core concepts through interactive lessons</p>
-                                    </div>
-                                    <div class="overview-item">
-                                        <i class="fas fa-hands-on"></i>
-                                        <h5>Practice</h5>
-                                        <p>Apply your knowledge with interactive exercises</p>
-                                    </div>
-                                    <div class="overview-item">
-                                        <i class="fas fa-check-double"></i>
-                                        <h5>Assessment</h5>
-                                        <p>Test your understanding with quizzes</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="getting-started">
-                                <h4>Getting Started</h4>
-                                <p>Click the button below to begin with Propositions:</p>
-                                <button onclick="switchSection('propositions')" class="start-btn">
-                                    Begin Learning <i class="fas fa-arrow-right"></i>
-                                </button>
-                            </div>
+                        <p>Welcome to the Interactive Logic Module. This course will guide you through:</p>
+                        <ul class="learning-objectives">
+                            <li>Understanding basic logical concepts</li>
+                            <li>Working with truth tables</li>
+                            <li>Mastering predicate logic</li>
+                            <li>Applying logical principles</li>
+                        </ul>
+                        <div class="start-section">
+                            <button class="btn primary-btn" onclick="startModule()">
+                                Begin Learning
+                            </button>
                         </div>
                     </div>
                 </div>
             </section>
+
             <!-- Propositions Section -->
             <section id="propositions" class="content-section">
-                <div class="section-container">
+                <div class="section-content">
                     <h2>Propositions</h2>
                     <div class="content-card">
                         <div class="theory-block">
                             <h3>What is a Proposition?</h3>
-                            <p>A proposition is a declarative sentence that is either true or false, but not both.</p>
+                            <p>A proposition is a declarative statement that is either true or false, but not both.</p>
                             
-                            <div class="examples-block">
+                            <div class="examples">
                                 <h4>Examples:</h4>
-                                <ul class="example-list">
-                                    <li class="valid-example">
-                                        <i class="fas fa-check"></i>
-                                        "The sum of 2 and 2 is 4"
-                                        <span class="explanation">Valid proposition - has a definite truth value</span>
-                                    </li>
-                                    <li class="invalid-example">
-                                        <i class="fas fa-times"></i>
-                                        "How old are you?"
-                                        <span class="explanation">Not a proposition - it's a question</span>
-                                    </li>
-                                </ul>
+                                <div class="example valid">
+                                    <span class="checkmark">✓</span>
+                                    <p>"The sum of 2 and 2 is 4"</p>
+                                    <span class="note">Valid proposition (can be evaluated as true)</span>
+                                </div>
+                                <div class="example invalid">
+                                    <span class="crossmark">✗</span>
+                                    <p>"How are you?"</p>
+                                    <span class="note">Not a proposition (question)</span>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Interactive Practice -->
-                        <div class="interactive-workspace">
+                        <div class="interactive-area">
                             <h3>Practice: Identifying Propositions</h3>
-                            <div class="practice-container">
-                                <div id="proposition-practice">
-                                    <div class="statement-display">
-                                        <p id="current-statement">Loading statement...</p>
-                                    </div>
-                                    <div class="button-group">
-                                        <button onclick="checkProposition(true)" class="btn yes-btn">
-                                            <i class="fas fa-check"></i> Is a Proposition
-                                        </button>
-                                        <button onclick="checkProposition(false)" class="btn no-btn">
-                                            <i class="fas fa-times"></i> Not a Proposition
-                                        </button>
-                                    </div>
-                                    <div id="proposition-feedback" class="feedback-box"></div>
-                                    <button onclick="nextProposition()" class="btn next-btn">
-                                        Next Example <i class="fas fa-arrow-right"></i>
+                            <div class="practice-problem">
+                                <p id="current-statement"></p>
+                                <div class="button-group">
+                                    <button class="btn" onclick="checkProposition(true)">
+                                        Is a Proposition
+                                    </button>
+                                    <button class="btn" onclick="checkProposition(false)">
+                                        Not a Proposition
                                     </button>
                                 </div>
+                                <div id="feedback" class="feedback"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Logical Operators Section -->
-            <section id="logical-operators" class="content-section">
-                <div class="section-container">
-                    <h2>Logical Operators</h2>
-                    <div class="content-card">
-                        <div class="operators-grid">
-                            <div class="operator-card">
-                                <h3>AND (∧)</h3>
-                                <div class="operator-example">
-                                    <p>True only when both statements are true</p>
-                                    <div class="operator-table">
-                                        <table>
-                                            <tr>
-                                                <th>P</th>
-                                                <th>Q</th>
-                                                <th>P ∧ Q</th>
-                                            </tr>
-                                            <tr>
-                                                <td>T</td>
-                                                <td>T</td>
-                                                <td>T</td>
-                                            </tr>
-                                            <tr>
-                                                <td>T</td>
-                                                <td>F</td>
-                                                <td>F</td>
-                                            </tr>
-                                            <tr>
-                                                <td>F</td>
-                                                <td>T</td>
-                                                <td>F</td>
-                                            </tr>
-                                            <tr>
-                                                <td>F</td>
-                                                <td>F</td>
-                                                <td>F</td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="operator-card">
-                                <h3>OR (∨)</h3>
-                                <div class="operator-example">
-                                    <p>True when at least one statement is true</p>
-                                    <div class="operator-table">
-                                        <!-- OR truth table -->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="operator-card">
-                                <h3>NOT (¬)</h3>
-                                <div class="operator-example">
-                                    <p>Negates the truth value</p>
-                                    <div class="operator-table">
-                                        <!-- NOT truth table -->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="operator-card">
-                                <h3>IMPLIES (→)</h3>
-                                <div class="operator-example">
-                                    <p>False only when P is true and Q is false</p>
-                                    <div class="operator-table">
-                                        <!-- IMPLIES truth table -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Interactive Operator Practice -->
-                        <div class="interactive-workspace">
-                            <h3>Practice with Operators</h3>
-                            <div class="operator-practice">
-                                <div class="practice-controls">
-                                    <select id="operator-select" class="operator-dropdown">
-                                        <option value="and">AND (∧)</option>
-                                        <option value="or">OR (∨)</option>
-                                        <option value="not">NOT (¬)</option>
-                                        <option value="implies">IMPLIES (→)</option>
-                                    </select>
-                                    <button onclick="generateOperatorExample()" class="btn practice-btn">
-                                        Generate Example
-                                    </button>
-                                </div>
-                                <div id="operator-workspace" class="practice-workspace">
-                                    <!-- Dynamic operator practice content -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-<!-- Truth Tables Section -->
+            <!-- Truth Tables Section -->
             <section id="truth-tables" class="content-section">
-                <div class="section-container">
+                <div class="section-content">
                     <h2>Truth Tables</h2>
                     <div class="content-card">
                         <div class="theory-block">
@@ -279,210 +122,163 @@
                             <p>Truth tables show all possible combinations of truth values for logical expressions.</p>
                         </div>
 
-                        <!-- Truth Table Builder -->
-                        <div class="interactive-workspace">
+                        <div class="interactive-area">
                             <h3>Truth Table Generator</h3>
-                            <div class="builder-controls">
-                                <div class="input-group">
-                                    <input type="text" id="expression-input" 
-                                           placeholder="Enter logical expression (e.g., P ∧ Q)"
-                                           class="expression-input">
-                                    <div class="symbol-palette">
-                                        <button onclick="insertSymbol('∧')" class="symbol-btn">∧</button>
-                                        <button onclick="insertSymbol('∨')" class="symbol-btn">∨</button>
-                                        <button onclick="insertSymbol('¬')" class="symbol-btn">¬</button>
-                                        <button onclick="insertSymbol('→')" class="symbol-btn">→</button>
-                                        <button onclick="insertSymbol('↔')" class="symbol-btn">↔</button>
-                                        <button onclick="insertSymbol('(')" class="symbol-btn">(</button>
-                                        <button onclick="insertSymbol(')')" class="symbol-btn">)</button>
-                                    </div>
+                            <div class="control-panel">
+                                <input type="text" 
+                                       id="expression-input" 
+                                       placeholder="Enter logical expression (e.g., P ∧ Q)"
+                                       class="expression-input">
+                                <div class="symbol-palette">
+                                    <button class="symbol-btn" data-symbol="∧">∧</button>
+                                    <button class="symbol-btn" data-symbol="∨">∨</button>
+                                    <button class="symbol-btn" data-symbol="¬">¬</button>
+                                    <button class="symbol-btn" data-symbol="→">→</button>
+                                    <button class="symbol-btn" data-symbol="↔">↔</button>
                                 </div>
-                                <button onclick="generateTruthTable()" class="btn generate-btn">
+                                <button class="btn generate-btn" onclick="generateTruthTable()">
                                     Generate Table
                                 </button>
                             </div>
-                            <div id="truth-table-output" class="table-output">
-                                <!-- Generated truth table will appear here -->
-                            </div>
-                            <div class="step-by-step" id="evaluation-steps">
-                                <!-- Step-by-step evaluation will appear here -->
-                            </div>
-                        </div>
-
-                        <!-- Truth Table Practice -->
-                        <div class="practice-section">
-                            <h3>Practice Exercises</h3>
-                            <div class="exercise-container">
-                                <div id="truth-table-practice">
-                                    <!-- Practice problems will be loaded here -->
-                                </div>
-                                <div class="controls">
-                                    <button onclick="checkTruthTableAnswer()" class="btn check-btn">
-                                        Check Answer
-                                    </button>
-                                    <button onclick="nextTruthTableProblem()" class="btn next-btn">
-                                        Next Problem
-                                    </button>
-                                </div>
-                            </div>
+                            <div id="truth-table-output" class="table-output"></div>
                         </div>
                     </div>
                 </div>
             </section>
-
-            <!-- Predicate Logic Section -->
-            <section id="predicate-logic" class="content-section">
-                <div class="section-container">
+<!-- Predicate Logic Section -->
+            <section id="predicate" class="content-section">
+                <div class="section-content">
                     <h2>Predicate Logic</h2>
                     <div class="content-card">
                         <div class="theory-block">
                             <h3>Predicates and Quantifiers</h3>
-                            <p>Predicate logic extends propositional logic by adding variables and quantifiers.</p>
-                            
                             <div class="quantifier-explanation">
-                                <div class="quantifier-card">
+                                <div class="quantifier-box">
                                     <h4>Universal Quantifier (∀)</h4>
-                                    <p>"For all" or "For every"</p>
-                                    <div class="example">
-                                        Example: ∀x(x > 0 → x² > 0)
+                                    <p class="description">"For all" or "For every"</p>
+                                    <div class="example-box">
+                                        <p>Example: ∀x P(x)</p>
+                                        <span class="explanation">
+                                            "For all x, P(x) is true"
+                                        </span>
                                     </div>
                                 </div>
-                                <div class="quantifier-card">
+                                <div class="quantifier-box">
                                     <h4>Existential Quantifier (∃)</h4>
-                                    <p>"There exists" or "For some"</p>
-                                    <div class="example">
-                                        Example: ∃x(x² = 2)
+                                    <p class="description">"There exists" or "For some"</p>
+                                    <div class="example-box">
+                                        <p>Example: ∃x P(x)</p>
+                                        <span class="explanation">
+                                            "There exists an x for which P(x) is true"
+                                        </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Predicate Builder -->
-                        <div class="interactive-workspace">
-                            <h3>Predicate Formula Builder</h3>
+                        <div class="interactive-area">
+                            <h3>Predicate Builder</h3>
                             <div class="builder-controls">
                                 <select id="quantifier-select" class="select-input">
                                     <option value="universal">Universal (∀)</option>
                                     <option value="existential">Existential (∃)</option>
                                 </select>
-                                <input type="text" id="variable-input" 
+                                <input type="text" 
+                                       id="variable-input" 
                                        placeholder="Variable (e.g., x)"
                                        class="text-input">
-                                <input type="text" id="predicate-input"
+                                <input type="text" 
+                                       id="predicate-input" 
                                        placeholder="Predicate (e.g., P(x))"
                                        class="text-input">
-                                <div class="symbol-palette">
-                                    <button onclick="insertPredicateSymbol('→')" class="symbol-btn">→</button>
-                                    <button onclick="insertPredicateSymbol('∧')" class="symbol-btn">∧</button>
-                                    <button onclick="insertPredicateSymbol('∨')" class="symbol-btn">∨</button>
-                                    <button onclick="insertPredicateSymbol('¬')" class="symbol-btn">¬</button>
-                                </div>
-                                <button onclick="buildPredicate()" class="btn build-btn">
+                                <button class="btn build-btn" onclick="buildPredicate()">
                                     Build Formula
                                 </button>
                             </div>
-                            <div id="predicate-output" class="formula-output">
-                                <!-- Generated predicate formula will appear here -->
-                            </div>
+                            <div id="predicate-output" class="formula-display"></div>
                         </div>
 
-                        <!-- Translation Practice -->
-                        <div class="practice-section">
+                        <div class="practice-area">
                             <h3>Translation Practice</h3>
                             <div class="translation-exercise">
-                                <div id="translation-problem">
-                                    <!-- Translation problems will be loaded here -->
-                                </div>
-                                <div class="controls">
-                                    <button onclick="checkTranslation()" class="btn check-btn">
+                                <div id="translation-problem"></div>
+                                <div class="input-area">
+                                    <input type="text" 
+                                           id="translation-answer" 
+                                           placeholder="Enter your translation"
+                                           class="answer-input">
+                                    <button class="btn check-btn" onclick="checkTranslation()">
                                         Check Translation
                                     </button>
-                                    <button onclick="nextTranslation()" class="btn next-btn">
-                                        Next Problem
-                                    </button>
                                 </div>
+                                <div id="translation-feedback" class="feedback"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-<!-- Practice Section -->
-            <section id="practice" class="content-section">
-                <div class="section-container">
-                    <h2>Comprehensive Practice</h2>
-                    <div class="content-card">
-                        <!-- Practice Navigation -->
-                        <div class="practice-nav">
-                            <button class="practice-tab active" data-type="propositions">
-                                Propositions
-                            </button>
-                            <button class="practice-tab" data-type="truth-tables">
-                                Truth Tables
-                            </button>
-                            <button class="practice-tab" data-type="predicates">
-                                Predicates
-                            </button>
-                            <button class="practice-tab" data-type="mixed">
-                                Mixed Practice
-                            </button>
-                        </div>
 
-                        <!-- Practice Workspace -->
-                        <div class="practice-workspace">
-                            <!-- Difficulty Selector -->
+            <!-- Practice Section -->
+            <section id="practice" class="content-section">
+                <div class="section-content">
+                    <h2>Practice Problems</h2>
+                    <div class="content-card">
+                        <div class="practice-controls">
+                            <div class="topic-selector">
+                                <label for="topic-select">Topic:</label>
+                                <select id="topic-select" class="select-input">
+                                    <option value="propositions">Propositions</option>
+                                    <option value="truth-tables">Truth Tables</option>
+                                    <option value="predicate">Predicate Logic</option>
+                                    <option value="mixed">Mixed Practice</option>
+                                </select>
+                            </div>
                             <div class="difficulty-selector">
-                                <label>Difficulty:</label>
-                                <select id="difficulty-select" class="difficulty-dropdown">
+                                <label for="difficulty-select">Difficulty:</label>
+                                <select id="difficulty-select" class="select-input">
                                     <option value="beginner">Beginner</option>
                                     <option value="intermediate">Intermediate</option>
                                     <option value="advanced">Advanced</option>
                                 </select>
                             </div>
+                        </div>
 
-                            <!-- Problem Display -->
-                            <div class="problem-display">
-                                <div class="problem-header">
-                                    <h3>Problem <span id="problem-number">1</span></h3>
-                                    <span class="difficulty-badge" id="current-difficulty">Beginner</span>
-                                </div>
-                                
-                                <div id="problem-content" class="problem-content">
-                                    <!-- Dynamic problem content will be loaded here -->
-                                </div>
-
-                                <div class="problem-controls">
-                                    <button onclick="showHint()" class="btn hint-btn">
-                                        <i class="fas fa-lightbulb"></i> Show Hint
-                                    </button>
-                                    <button onclick="checkPracticeAnswer()" class="btn check-btn">
-                                        <i class="fas fa-check"></i> Check Answer
-                                    </button>
-                                    <button onclick="nextPractice()" class="btn next-btn">
-                                        Next <i class="fas fa-arrow-right"></i>
-                                    </button>
-                                </div>
-
-                                <div id="practice-feedback" class="feedback-container">
-                                    <!-- Feedback will appear here -->
-                                </div>
+                        <div class="problem-display">
+                            <div class="problem-header">
+                                <h3>Problem <span id="problem-number">1</span></h3>
+                                <span class="difficulty-badge" id="current-difficulty">
+                                    Beginner
+                                </span>
                             </div>
+                            <div id="practice-content" class="practice-content">
+                                <!-- Dynamic practice content will load here -->
+                            </div>
+                            <div class="practice-buttons">
+                                <button class="btn hint-btn" onclick="showHint()">
+                                    Show Hint
+                                </button>
+                                <button class="btn check-btn" onclick="checkPracticeAnswer()">
+                                    Check Answer
+                                </button>
+                                <button class="btn next-btn" onclick="nextPractice()">
+                                    Next Problem
+                                </button>
+                            </div>
+                            <div id="practice-feedback" class="feedback"></div>
+                        </div>
 
-                            <!-- Progress Tracker -->
-                            <div class="practice-progress">
-                                <div class="progress-stats">
-                                    <div class="stat-item">
-                                        <label>Completed:</label>
-                                        <span id="completed-count">0</span>
-                                    </div>
-                                    <div class="stat-item">
-                                        <label>Correct:</label>
-                                        <span id="correct-count">0</span>
-                                    </div>
-                                    <div class="stat-item">
-                                        <label>Accuracy:</label>
-                                        <span id="accuracy-rate">0%</span>
-                                    </div>
-                                </div>
+                        <div class="practice-stats">
+                            <div class="stat-item">
+                                <label>Completed:</label>
+                                <span id="completed-count">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <label>Correct:</label>
+                                <span id="correct-count">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <label>Accuracy:</label>
+                                <span id="accuracy-rate">0%</span>
                             </div>
                         </div>
                     </div>
@@ -491,61 +287,54 @@
 
             <!-- Assessment Section -->
             <section id="assessment" class="content-section">
-                <div class="section-container">
-                    <h2>Knowledge Assessment</h2>
+                <div class="section-content">
+                    <h2>Final Assessment</h2>
                     <div class="content-card">
-                        <!-- Assessment Instructions -->
                         <div class="assessment-intro">
-                            <h3>Final Assessment</h3>
+                            <h3>Knowledge Check</h3>
                             <p>This assessment will test your understanding of all module concepts.</p>
-                            <div class="assessment-stats">
-                                <div class="stat-item">
-                                    <i class="fas fa-question-circle"></i>
-                                    <span>Questions: 20</span>
+                            <div class="assessment-info">
+                                <div class="info-item">
+                                    <span class="label">Questions:</span>
+                                    <span class="value">20</span>
                                 </div>
-                                <div class="stat-item">
-                                    <i class="fas fa-clock"></i>
-                                    <span>Time Limit: 30 minutes</span>
+                                <div class="info-item">
+                                    <span class="label">Time Limit:</span>
+                                    <span class="value">30 minutes</span>
                                 </div>
-                                <div class="stat-item">
-                                    <i class="fas fa-check-circle"></i>
-                                    <span>Passing Score: 80%</span>
+                                <div class="info-item">
+                                    <span class="label">Passing Score:</span>
+                                    <span class="value">80%</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Assessment Content -->
-                        <div class="assessment-content">
-                            <div id="assessment-timer" class="timer">
-                                Time Remaining: <span id="time-display">30:00</span>
+                        <div id="assessment-content" class="assessment-content">
+                            <div class="timer" id="assessment-timer">
+                                Time Remaining: <span id="timer-display">30:00</span>
                             </div>
-
                             <div id="question-container" class="question-container">
-                                <!-- Questions will be dynamically loaded here -->
+                                <!-- Questions will load here -->
                             </div>
-
-                            <div class="assessment-controls">
-                                <button onclick="previousQuestion()" class="btn prev-btn">
-                                    <i class="fas fa-arrow-left"></i> Previous
+                            <div class="assessment-navigation">
+                                <button class="btn prev-btn" onclick="previousQuestion()">
+                                    Previous
                                 </button>
-                                <div class="question-nav" id="question-nav">
-                                    <!-- Question navigation buttons will be generated here -->
+                                <div id="question-nav" class="question-nav">
+                                    <!-- Question navigation will be generated here -->
                                 </div>
-                                <button onclick="nextQuestion()" class="btn next-btn">
-                                    Next <i class="fas fa-arrow-right"></i>
+                                <button class="btn next-btn" onclick="nextQuestion()">
+                                    Next
                                 </button>
                             </div>
-
-                            <div class="submission-controls">
-                                <button onclick="submitAssessment()" class="btn submit-btn">
-                                    Submit Assessment
-                                </button>
-                            </div>
+                            <button class="btn submit-btn" onclick="submitAssessment()">
+                                Submit Assessment
+                            </button>
                         </div>
 
-                        <!-- Results Display (initially hidden) -->
-                        <div id="assessment-results" class="results-container" style="display: none;">
-                            <!-- Results will be shown here after submission -->
+                        <div id="assessment-results" class="results-container" 
+                             style="display: none;">
+                            <!-- Results will display here after submission -->
                         </div>
                     </div>
                 </div>
@@ -554,19 +343,10 @@
 
         <!-- Module Footer -->
         <footer class="module-footer">
-            <div class="footer-content">
-                <div class="module-progress">
-                    <h4>Module Completion</h4>
-                    <div class="progress-summary">
-                        <div class="progress-bar">
-                            <div class="progress-fill" id="overall-progress"></div>
-                        </div>
-                        <span id="completion-percentage">0%</span>
-                    </div>
-                </div>
-                <div class="navigation-hints">
-                    <p>Use the navigation menu to move between sections</p>
-                    <p>Complete all sections to unlock the final assessment</p>
+            <div class="progress-summary">
+                <h4>Module Progress</h4>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="overall-progress"></div>
                 </div>
             </div>
         </footer>
