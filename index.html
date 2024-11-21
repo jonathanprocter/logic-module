@@ -3,198 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Interactive Logic and Proofs Learning Module">
-    <title>Logic and Proofs: Interactive Module</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Logic and Proofs: Interactive Learning Module</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <!-- MathJax for mathematical notation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="module-container">
-        <!-- Module Header -->
+        <!-- Header with Progress -->
         <header class="module-header">
-            <h1>Logic and Proofs: Interactive Learning Module</h1>
-            <div class="progress-tracker">
+            <h1>Logic and Proofs</h1>
+            <div class="progress-section">
                 <div class="progress-bar">
-                    <div class="progress-fill" id="progress"></div>
+                    <div class="progress-fill" id="progress-bar"></div>
                 </div>
-                <p>Progress: <span id="progress-text">0%</span></p>
+                <p class="progress-text">Progress: <span id="progress-value">0%</span></p>
             </div>
+            <!-- Module Menu -->
+            <nav class="module-menu">
+                <button class="menu-btn" id="open-menu">
+                    <i class="fas fa-bars"></i> Menu
+                </button>
+                <div class="menu-content" id="menu-dropdown">
+                    <a href="#intro" class="menu-item active">Introduction</a>
+                    <a href="#propositions" class="menu-item">Propositions</a>
+                    <a href="#logical-operators" class="menu-item">Logical Operators</a>
+                    <a href="#truth-tables" class="menu-item">Truth Tables</a>
+                    <a href="#predicate-logic" class="menu-item">Predicate Logic</a>
+                    <a href="#practice" class="menu-item">Practice</a>
+                    <a href="#assessment" class="menu-item">Assessment</a>
+                </div>
+            </nav>
         </header>
 
         <!-- Main Navigation -->
         <nav class="module-nav">
             <ul class="nav-list">
-                <li><button class="nav-btn active" data-section="basics">Basic Concepts</button></li>
-                <li><button class="nav-btn" data-section="truth-tables">Truth Tables</button></li>
-                <li><button class="nav-btn" data-section="predicate">Predicate Logic</button></li>
-                <li><button class="nav-btn" data-section="practice">Practice</button></li>
-                <li><button class="nav-btn" data-section="assessment">Assessment</button></li>
+                <li><button class="nav-btn active" data-section="intro">
+                    <i class="fas fa-home"></i> Introduction
+                </button></li>
+                <li><button class="nav-btn" data-section="propositions">
+                    <i class="fas fa-quote-right"></i> Propositions
+                </button></li>
+                <li><button class="nav-btn" data-section="logical-operators">
+                    <i class="fas fa-code-branch"></i> Logical Operators
+                </button></li>
+                <li><button class="nav-btn" data-section="truth-tables">
+                    <i class="fas fa-table"></i> Truth Tables
+                </button></li>
+                <li><button class="nav-btn" data-section="predicate-logic">
+                    <i class="fas fa-function"></i> Predicate Logic
+                </button></li>
+                <li><button class="nav-btn" data-section="practice">
+                    <i class="fas fa-pencil-alt"></i> Practice
+                </button></li>
+                <li><button class="nav-btn" data-section="assessment">
+                    <i class="fas fa-check-circle"></i> Assessment
+                </button></li>
             </ul>
         </nav>
 
         <!-- Main Content Area -->
         <main class="content-area">
-            <!-- Basic Concepts Section -->
-            <section id="basics" class="content-section active">
-                <h2>Basic Logical Concepts</h2>
-                
-                <div class="concept-card">
-                    <h3>Propositions</h3>
-                    <p>A proposition is a statement that is either true or false, but not both.</p>
-                    
-                    <div class="interactive-workspace">
-                        <h4>Practice: Identifying Propositions</h4>
-                        <div class="practice-area">
-                            <div class="statement-checker">
-                                <p id="current-statement">The sky is blue.</p>
-                                <div class="button-group">
-                                    <button class="btn" onclick="checkStatement(true)">Proposition</button>
-                                    <button class="btn" onclick="checkStatement(false)">Not a Proposition</button>
+            <!-- Introduction Section -->
+            <section id="intro" class="content-section active">
+                <div class="section-container">
+                    <h2>Introduction to Logic</h2>
+                    <div class="content-card">
+                        <div class="card-header">
+                            <h3>Welcome to Logic and Proofs</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="intro-text">
+                                This interactive module will guide you through the fundamental concepts
+                                of mathematical logic and proof techniques.
+                            </p>
+                            <div class="learning-objectives">
+                                <h4>Learning Objectives</h4>
+                                <ul>
+                                    <li>Understand basic logical concepts and terminology</li>
+                                    <li>Master truth tables and logical operators</li>
+                                    <li>Learn predicate logic and quantifiers</li>
+                                    <li>Apply logical principles to construct proofs</li>
+                                </ul>
+                            </div>
+                            <div class="module-overview">
+                                <h4>Module Overview</h4>
+                                <div class="overview-grid">
+                                    <div class="overview-item">
+                                        <i class="fas fa-book"></i>
+                                        <h5>Theory</h5>
+                                        <p>Learn core concepts through interactive lessons</p>
+                                    </div>
+                                    <div class="overview-item">
+                                        <i class="fas fa-hands-on"></i>
+                                        <h5>Practice</h5>
+                                        <p>Apply your knowledge with interactive exercises</p>
+                                    </div>
+                                    <div class="overview-item">
+                                        <i class="fas fa-check-double"></i>
+                                        <h5>Assessment</h5>
+                                        <p>Test your understanding with quizzes</p>
+                                    </div>
                                 </div>
-                                <div id="statement-feedback" class="feedback"></div>
+                            </div>
+                            <div class="getting-started">
+                                <h4>Getting Started</h4>
+                                <p>Click the button below to begin with Propositions:</p>
+                                <button onclick="switchSection('propositions')" class="start-btn">
+                                    Begin Learning <i class="fas fa-arrow-right"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-
-            <!-- Truth Tables Section -->
-            <section id="truth-tables" class="content-section">
-                <h2>Truth Tables</h2>
-                
-                <div class="interactive-workspace">
-                    <h3>Truth Table Builder</h3>
-                    <div class="control-panel">
-                        <input type="text" id="logic-expression" 
-                               placeholder="Enter logical expression (e.g., P ∧ Q)"
-                               class="logic-input">
-                        <div class="symbol-palette">
-                            <button class="symbol-btn" onclick="insertSymbol('∧')">∧ (AND)</button>
-                            <button class="symbol-btn" onclick="insertSymbol('∨')">∨ (OR)</button>
-                            <button class="symbol-btn" onclick="insertSymbol('¬')">¬ (NOT)</button>
-                            <button class="symbol-btn" onclick="insertSymbol('→')">→ (IMPLIES)</button>
-                            <button class="symbol-btn" onclick="insertSymbol('↔')">↔ (IFF)</button>
-                        </div>
-                        <button class="btn" onclick="generateTruthTable()">Generate Table</button>
-                    </div>
-                    <div id="truth-table-output" class="table-container"></div>
-                </div>
-            </section>
-
-            <!-- Predicate Logic Section -->
-            <section id="predicate" class="content-section">
-                <h2>Predicate Logic</h2>
-                
-                <div class="interactive-workspace">
-                    <h3>Predicate Builder</h3>
-                    <div class="predicate-builder">
-                        <div class="control-panel">
-                            <select id="quantifier-select" class="select-input">
-                                <option value="universal">Universal (∀)</option>
-                                <option value="existential">Existential (∃)</option>
-                            </select>
-                            <input type="text" id="variable-input" 
-                                   placeholder="Variable (e.g., x)"
-                                   class="logic-input">
-                            <input type="text" id="predicate-input" 
-                                   placeholder="Predicate (e.g., P(x))"
-                                   class="logic-input">
-                            <button class="btn" onclick="buildPredicate()">Build Formula</button>
-                        </div>
-                        <div id="predicate-output" class="formula-display"></div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Practice Section -->
-            <section id="practice" class="content-section">
-                <h2>Practice Problems</h2>
-                
-                <div class="practice-set">
-                    <!-- Truth Table Practice -->
-                    <div class="practice-problem">
-                        <h3>Truth Table Practice</h3>
-                        <p>Complete the truth table for: P → Q</p>
-                        <div class="interactive-table">
-                            <table id="practice-table" class="truth-table">
-                                <thead>
-                                    <tr>
-                                        <th>P</th>
-                                        <th>Q</th>
-                                        <th>P → Q</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>T</td>
-                                        <td>T</td>
-                                        <td><input type="text" class="truth-input" data-row="0"></td>
-                                    </tr>
-                                    <!-- Additional rows -->
-                                </tbody>
-                            </table>
-                            <button class="btn" onclick="checkTruthTable()">Check Answers</button>
-                        </div>
-                    </div>
-
-                    <!-- Predicate Translation Practice -->
-                    <div class="practice-problem">
-                        <h3>Predicate Translation</h3>
-                        <p>Translate: "All numbers are positive"</p>
-                        <div class="translation-workspace">
-                            <input type="text" id="translation-input" 
-                                   placeholder="Enter your translation"
-                                   class="logic-input">
-                            <button class="btn" onclick="checkTranslation()">Check Translation</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Assessment Section -->
-            <section id="assessment" class="content-section">
-                <h2>Knowledge Assessment</h2>
-                
-                <div class="assessment-container">
-                    <!-- Multiple Choice Questions -->
-                    <div class="quiz-section">
-                        <h3>Concept Check</h3>
-                        <div class="quiz-question">
-                            <p>1. Which of the following is a valid proposition?</p>
-                            <div class="options">
-                                <label class="option">
-                                    <input type="radio" name="q1" value="a">
-                                    How are you?
-                                </label>
-                                <label class="option">
-                                    <input type="radio" name="q1" value="b">
-                                    The sum of 2 and 2 is 4.
-                                </label>
-                                <label class="option">
-                                    <input type="radio" name="q1" value="c">
-                                    Please close the door.
-                                </label>
-                            </div>
-                            <button class="btn" onclick="checkAnswer(1)">Submit Answer</button>
-                            <div id="q1-feedback" class="feedback"></div>
-                        </div>
-                        <!-- Additional questions -->
-                    </div>
-                </div>
-            </section>
-        </main>
-    </div>
-
-    <!-- Module Scripts -->
-    <script src="js/main.js"></script>
-
-    <!-- Initialize MathJax -->
-    <script>
-        MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']]
-            }
-        };
-    </script>
-</body>
-</html>
